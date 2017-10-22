@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 import io from 'socket.io-client';
+
+import './App.css';
+import config from './config.js';
 
 class App extends Component {
 
   componentWillMount() {
-    this.socket = io('http://localhost:4000');
+    this.socket = io(config.serviceUrl);
   }
 
   _handleClick() {

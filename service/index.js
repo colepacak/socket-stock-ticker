@@ -1,15 +1,17 @@
 import http from 'http';
 import socket_io from 'socket.io';
 
-const port = 4000;
+import config from './config.js';
+
+const port = config.port;
 const server = http.createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin', config.allowOrigin);
   res.end();
 });
 let io = socket_io(server);
 
-server.listen(port, () => {
-  console.log('listening on ' + port)
+server.listen(port, config.host, () => {
+  console.log('listening on ' + server.address().address + ':'+ port);
 });
 
 io.on('connection', socket => {
