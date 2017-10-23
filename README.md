@@ -2,7 +2,7 @@
 * fetch stock data periodically
 * store stock data in a JS object
 * on update, push new data to clients via sockets
-* configure hostname to be IP within private network
+~~* configure hostname to be IP within private network~~
 
 ### Client
 * component that establishes connection with server via sockets
